@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Habilitacion</title>
+</head>
+<body>
+<h1>Detalles</h1>
+<hr>
+<h4>Listar detalles</h4>
+<div id="dataNews"></div>
+<script type="text/javascript">
+	
+    fetch('http://localhost:8080/news')
+    .then(response => response.json())
+    .then(data => mostrarUsuarios(data))
+    .catch(error => console.log(error))
+    
+    const mostrarUsuarios=(data)=>{
+        console.log(data)
+        let body=''
+        for(let i=0;i<data.length;i++){
+         body+=`<tr>  <td>${data[i].id}</td><td>${data[i].titulo}</td><td>${data[i].desarrollo}</td> <td>${data[i].fecha}</td><td>${data[i].url}</td><td>${data[i].resumen}</td></tr>`
+         
+        }
+        document.getElementById('dataNews').innerHTML=body
+    }
+</script>
+</body>
+</html>
