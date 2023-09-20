@@ -4,26 +4,29 @@
 	<title>Habilitacion</title>
 </head>
 <body>
-<h1>Detalles</h1>
+<h1>News</h1>
 <hr>
-<h4>Listar detalles</h4>
-<div id="dataNews"></div>
-<script type="text/javascript">
+<h4>Listar noticias</h4>
 	
-    fetch('http://localhost:8080/news')
-    .then(response => response.json())
-    .then(data => mostrarUsuarios(data))
-    .catch(error => console.log(error))
-    
-    const mostrarUsuarios=(data)=>{
-        console.log(data)
-        let body=''
-        for(let i=0;i<data.length;i++){
-         body+=`<tr>  <td>${data[i].id}</td><td>${data[i].titulo}</td><td>${data[i].desarrollo}</td> <td>${data[i].fecha}</td><td>${data[i].url}</td><td>${data[i].resumen}</td></tr>`
-         
-        }
-        document.getElementById('dataNews').innerHTML=body
-    }
-</script>
+<div class="col-12 mt-3" id="verNews">    
+      <table class="table table-striped" id="lista">
+        <thead>
+        <tr>
+          <td>Id</td>
+          <td>Titulo</td>
+          <td>Desarrollo</td>
+          <td>Fecha</td>
+          <td>Url</td>
+          <td>Resumen</td>
+          <td>Editar usuario</td>
+          <td>Eliminar usuario</td>        </tr>
+        </thead>
+        <tbody id="dataNews"></tbody>
+      </table>
+    </div>
+    <button> <a href="productos.html">Ver productos</a></button>
+    <button> <a href="productos.html">Ver categoria </a> </button>
+
+<script src="js/script.js"></script>
 </body>
 </html>
